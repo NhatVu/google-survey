@@ -1,0 +1,38 @@
+survey: {
+    "_id": 1,
+    "title": "Test title",
+    "description": "test description",
+    "createdBy": "userid",
+    "questions": [{
+            "questionId": 1,
+            "type": "dropdown", // type linear, checkbox
+            "content": "question 1 content",
+            "answers": [{
+                "content": "abc",
+                "count": 12 // each response, update this count
+            }, {
+                "content": "content 2",
+                "count": 23
+            }]
+        },
+        {
+            "questionId": 2,
+            "type": "short-answer", // type paragraph
+            "content": "question 2 paragraph content"
+        },
+        {
+            "questionId": 3,
+            "type": "grid",
+            "content": "question 3 grid content",
+            "answers": []
+        }
+    ]
+
+}
+
+AnswerTest: {
+    "_id": 1,
+    "surveyId": 1,
+    "questionId": 2,
+    "content": "content 1"
+}

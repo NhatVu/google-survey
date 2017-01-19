@@ -5,6 +5,11 @@ export default class HomePage extends React.Component {
         super()
     }
 
+    componentDidMount() {
+        jQuery(window).trigger('resize');
+
+    }
+
     render() {
         const {user} = this.props
         console.log('user: ', user)

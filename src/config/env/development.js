@@ -1,7 +1,7 @@
 'use strict'
 
 module.exports = {
-    db: 'mongodb://localhost/internship-todo',
+    db: 'mongodb://localhost/google-survey',
     facebook: {
         clientId: '1803191813282480',
         clientSecret: '72a96563ead5f98478a10242c5189eea',
