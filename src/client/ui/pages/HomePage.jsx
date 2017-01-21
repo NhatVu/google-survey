@@ -1,15 +1,55 @@
 import React from 'react'
+import TitleDescription from './TestComponent/TitleDescription.jsx'
+import Question from './TestComponent/Question.jsx'
 
 export default class HomePage extends React.Component {
     constructor() {
         super()
+        this.state = {
+            surveyContent: []
+        }
+        this.addQuestion = this.addQuestion.bind(this)
+        this.addTitleDescription = this.addTitleDescription.bind(this)
+        this.addImage = this.addImage.bind(this)
+        this.addVideo = this.addVideo.bind(this)
+        this.addSection = this.addSection.bind(this)
     }
 
     componentDidMount() {
         jQuery(window).trigger('resize');
-
+        // let textarea = document.querySelector('textarea');
+        // textarea.addEventListener('keydown', autosize);
+        //
+        // function autosize() {
+        //     var el = this;
+        //     // setTimeout(function() {
+        //     el.style.cssText = 'height:auto; padding:1vw';
+        //     // for box-sizing other than "content-box" use:
+        //     // el.style.cssText = '-moz-box-sizing:content-box';
+        //     el.style.cssText = 'height:' + el.scrollHeight + 'px';
+        //     // }, 0);
+        // }
     }
 
+    addContent(Component) {
+        let surveyContent = this.state.surveyContent;
+        let i = surveyContent.length + 1;
+        surveyContent.push(React.cloneElement(<Component/>, {key: i}))
+        this.setState({surveyContent})
+    }
+
+    addQuestion() {
+        this.addContent(Question)
+    }
+
+    addTitleDescription() {
+        this.addContent(TitleDescription)
+    }
+
+    addImage() {}
+
+    addVideo() {}
+    addSection() {}
     render() {
         const {user} = this.props
         console.log('user: ', user)
@@ -31,64 +71,15 @@ export default class HomePage extends React.Component {
 
                 <section class="content">
                     <div class="row">
-                        <div class="col-lg-3 col-xs-6">
-                            <div class="small-box bg-aqua">
-                                <div class="inner">
-                                    <h3>150</h3>
-
-                                    <p>New Orders</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="ion ion-bag"></i>
-                                </div>
-                                <a href="#" class="small-box-footer">More info
-                                    <i class="fa fa-arrow-circle-right"></i>
-                                </a>
-                            </div>
+                        <div class="col-md-8 col-md-offset-2 survey-content">
+                            {this.state.surveyContent}
                         </div>
-                        <div class="col-lg-3 col-xs-6">
-                            <div class="small-box bg-green">
-                                <div class="inner">
-                                    <h3>53 %</h3>
-                                    <p>Bounce Rate</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="ion ion-stats-bars"></i>
-                                </div>
-                                <a href="#" class="small-box-footer">More info
-                                    <i class="fa fa-arrow-circle-right"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-xs-6">
-                            <div class="small-box bg-yellow">
-                                <div class="inner">
-                                    <h3>44</h3>
-
-                                    <p>User Registrations</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="ion ion-person-add"></i>
-                                </div>
-                                <a href="#" class="small-box-footer">More info
-                                    <i class="fa fa-arrow-circle-right"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-xs-6">
-                            <div class="small-box bg-red">
-                                <div class="inner">
-                                    <h3>65</h3>
-
-                                    <p>Unique Visitors</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="ion ion-pie-graph"></i>
-                                </div>
-                                <a href="#" class="small-box-footer">More info
-                                    <i class="fa fa-arrow-circle-right"></i>
-                                </a>
-                            </div>
+                        <div class="col-md-2 function-button">
+                            <button class="btn btn-primary btn-add-question" onClick={this.addQuestion}>Add question</button>
+                            <button class="btn btn-primary btn-add-title-description" onClick={this.addTitleDescription}>Add title and description</button>
+                            <button class="btn btn-primary btn-add-image" onClick={this.addImage}>Add image</button>
+                            <button class="btn btn-primary btn-add-video" onClick={this.addVideo}>Add video</button>
+                            <button class="btn btn-primary btn-add-section" onClick={this.addSection}>Add section</button>
                         </div>
                     </div>
                 </section>
