@@ -1,6 +1,6 @@
 import React from 'react'
 import TitleDescription from './TestComponent/TitleDescription.jsx'
-import Question from './TestComponent/Question.jsx'
+import QuestionEdit from './TestComponent/QuestionEdit.jsx'
 
 export default class HomePage extends React.Component {
     constructor() {
@@ -39,7 +39,7 @@ export default class HomePage extends React.Component {
     }
 
     addQuestion() {
-        this.addContent(Question)
+        this.addContent(QuestionEdit)
     }
 
     addTitleDescription() {

@@ -1,9 +1,19 @@
 .description {
-  resize: none;
-  overflow: hidden;
+    resize: none;
+    overflow: hidden;
 }
 
-.function-button{
-  position: fixed;
-  right: -2vw;
+.function-button {
+    position: fixed;
+    right: -2vw;
+}
+
+.question {
+    border: 2px solid;
+    padding: 2%;
+    margin: 2%;
+}
+
+.select-bottom-line {
+    border-bottom: 1px solid black;
 }
